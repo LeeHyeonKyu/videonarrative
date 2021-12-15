@@ -149,6 +149,7 @@ def train(cfg):
                 optimizer.step()
                 preds = (logits + 0.5).long().clamp(min=1, max=10)
                 batch_mse = (preds - answers) ** 2
+                
             else:
                 loss = criterion(logits, answers)
                 loss.backward()
